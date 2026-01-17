@@ -1,11 +1,39 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Projects from '../components/Projects.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import Aurora from '../components/background/Aurora';
+import ClickSpark from '../components/ui/mouse/ClickSpark';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+<ClickSpark
+  sparkColor='#fff'
+  sparkSize={10}
+  sparkRadius={15}
+  sparkCount={8}
+  duration={400}
+  client:load
+>
+  <Aurora
+    colorStops={["#db56cb", "#e79195", "#f1d257"]}
+    blend={0.5}
+    amplitude={1.0}
+    speed={0.5}
+    client:load
+  />
+	<Navbar />
+	<Hero />
+	<About />
+	<Projects />
+	<Contact />
+	<Footer />
+</ClickSpark>
 </Layout>

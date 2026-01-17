@@ -1,0 +1,28 @@
+---
+import SplitText from '../components/ui/text/SplitText';
+import Button from '../components/ui/Button.astro';
+import ScrollIndicator from './ui/ScrollIndicator.astro';
+---
+
+<div id="home" class="min-h-screen flex items-center justify-center">
+  <div class="text-white flex flex-col gap-4 text-center">
+  <SplitText
+    text="Evan's Portfolio"
+    className="text-4xl font-semibold text-center"
+    delay={100}
+    duration={0.3}
+    ease="power3.out"
+    splitType="chars"
+    from={{ opacity: 0, y: 40 }}
+    to={{ opacity: 1, y: 0 }}
+    threshold={0.1}
+    rootMargin="-100px"
+    textAlign="center"
+    onLetterAnimationComplete={() => console.log('Animation Complete!')}
+    client:load
+  />
+    <p class="text-lg font-medium -mt-3 text-white/60">Front-end Developer & Designer</p>
+    <Button href="#about" variant="outline" size="sm">Get Started</Button>
+  </div>
+  <ScrollIndicator />
+</div>

@@ -1,0 +1,70 @@
+---
+import ProjectCard from './ProjectCard.astro';
+import { projects } from '../data/projects';
+---
+
+<section id="projects" class="min-h-screen flex flex-col justify-center items-center text-white px-4 py-20">
+    <div class="max-w-6xl w-full space-y-12">
+        <!-- Header -->
+        <div class="space-y-2 text-center blur-in-scroll">
+            <p class="text-sm uppercase tracking-widest text-white/60 font-medium">My Work</p>
+            <h2 class="text-4xl md:text-5xl font-bold">Featured Projects</h2>
+            <p class="text-lg text-white/70 max-w-2xl mx-auto pt-2">
+                A collection of projects that showcase my skills in frontend development and design.
+            </p>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projects.map(project => (
+                <ProjectCard
+                    title={project.title}
+                    description={project.description}
+                    year={project.year}
+                    technologies={project.technologies}
+                    gradient={project.gradient}
+                    icon={project.icon}
+                    liveUrl={project.liveUrl}
+                    githubUrl={project.githubUrl}
+                />
+            ))}
+        </div>
+    </div>
+</section>
+
+<style>
+    .blur-in-scroll {
+        opacity: 0;
+        filter: blur(10px);
+        transform: translateY(20px);
+        transition: opacity 1s ease-out, filter 1s ease-out, transform 1s ease-out;
+    }
+
+    .blur-in-scroll.visible {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+</style>
+
+<script>
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 150);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.blur-in-scroll').forEach((el) => {
+        observer.observe(el);
+    });
+</script>

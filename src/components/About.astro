@@ -1,0 +1,62 @@
+<section id="about" class="min-h-screen flex flex-col justify-center items-center text-white px-4 py-20">
+    <div class="max-w-3xl w-full space-y-8">
+        <div class="space-y-2 blur-in-scroll">
+            <p class="text-sm uppercase tracking-widest text-white/60 font-medium">About Me</p>
+            <h2 class="text-4xl md:text-5xl font-bold">Building for everyone</h2>
+        </div>
+        
+        <p class="text-lg md:text-xl leading-relaxed text-white/80 blur-in-scroll">
+            Frontend Developer with 3 years of experience building modern, accessible web interfaces. I specialize in transforming designs into seamless digital experiences using React, Next.js, Astro, and Angular.
+        </p>
+        
+        <p class="text-base md:text-lg leading-relaxed text-white/70 blur-in-scroll">
+            My approach goes beyond code—I prioritize accessibility, intuitive design, and user comfort in every project. I believe the best technology is the kind that feels natural and works for everyone.
+        </p>
+
+        <div class="flex flex-wrap gap-3 pt-4 blur-in-scroll">
+            <span class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm border border-white/20">React</span>
+            <span class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm border border-white/20">Next.js</span>
+            <span class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm border border-white/20">Astro</span>
+            <span class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm border border-white/20">Angular</span>
+            <span class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm border border-white/20">Node.js</span>
+            <span class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm border border-white/20">Linux</span>
+        </div>
+    </div>
+</section>
+
+<style>
+    .blur-in-scroll {
+        opacity: 0;
+        filter: blur(10px);
+        transform: translateY(20px);
+        transition: opacity 1s ease-out, filter 1s ease-out, transform 1s ease-out;
+    }
+
+    .blur-in-scroll.visible {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+</style>
+
+<script>
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 200);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.blur-in-scroll').forEach((el) => {
+        observer.observe(el);
+    });
+</script>
