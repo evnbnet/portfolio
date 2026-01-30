@@ -30,18 +30,18 @@ export const projects: Project[] = [
     technologies: ["Astro", "TypeScript", "Tailwind", "React"],
     gradient: "from-blue-500 to-cyan-500",
     icon: "desktop",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/username/repo"
+    liveUrl: "https://evanbnet.netlify.app/",
+    githubUrl: "https://github.com/evnbnet/portfolio"
   },
   {
     id: 3,
-    title: "Cooming Soon",
-    description: "A project under development that aims to revolutionize task management with innovative features and a user-friendly interface.",
-    year: "2024",
-    technologies: ["Angular", "Node.js", "MongoDB"],
+    title: "Emoji Selector",
+    description: "Quickly find, copy, and use your favorite emojis in one place.",
+    year: "2026",
+    technologies: ["Astro", "Tailwind", "React"],
     gradient: "from-green-500 to-emerald-500",
     icon: "settings",
-    liveUrl: "",
-    githubUrl: ""
+    liveUrl: "https://emojibox.netlify.app/",
+    githubUrl: "https://github.com/evnbnet/emoji-selector"
   }
 ];
