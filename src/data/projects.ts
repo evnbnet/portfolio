@@ -35,13 +35,13 @@ export const projects: Project[] = [
   },
   {
     id: 3,
-    title: "Emoji Selector",
-    description: "Quickly find, copy, and use your favorite emojis in one place.",
+    title: "Skin Inspector",
+    description: "High-definition Minecraft skin viewer. Enter a username to inspect textures and models from multiple providers..",
     year: "2026",
     technologies: ["Astro", "Tailwind", "React"],
     gradient: "from-green-500 to-emerald-500",
     icon: "settings",
-    liveUrl: "https://emojibox.netlify.app/",
-    githubUrl: "https://github.com/evnbnet/emoji-selector"
+    liveUrl: "https://skin-inspector.netlify.app/",
+    githubUrl: "https://github.com/Sapphire-Development/skin-inspector"
   }
 ];
